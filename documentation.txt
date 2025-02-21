@@ -49,3 +49,23 @@ make a new company community (post request to backend controller to make a new c
 make a new post in a company community (post request to backend controller to make a new post)
 
 I will first start making the post object controller, service, repository, entity
+
+
+commands:
+http://localhost:8080/community for get request
+
+postgres-# \c brickdoordb1
+You are now connected to database "brickdoordb1" as user "hamzah".
+brickdoordb1-#
+
+run the springboot application
+mvn spring-boot:run
+
+
+http://localhost:8080/community \
+-H "Content-Type: application/json" \
+-d '{
+  "name": "Test Community",
+  "description": "A sample description for the community"
+}'
+

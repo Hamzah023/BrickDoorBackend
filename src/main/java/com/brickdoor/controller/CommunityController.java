@@ -28,6 +28,7 @@ public class CommunityController {
 
     @PostMapping
     public Community createCommunity(@RequestBody Community community) {
+        System.out.println("Creating Community: " + community);
         return communityService.createCommunity(community);
     }
 

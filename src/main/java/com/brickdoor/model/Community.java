@@ -21,7 +21,7 @@ public class Community {
     @Getter
     private LocalDateTime createdAt = LocalDateTime.now();
 
-    public Community() {
+    public Community() { //Hibernate (which Spring Data JPA uses) requires a no-argument constructor to create instances of entity classes using reflection.
     }
 
     public Community(String name, String description) {
