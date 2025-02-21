@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Getter
+@Table(name = "communities")
 @Setter
 
 public class Community {
