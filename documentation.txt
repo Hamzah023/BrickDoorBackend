@@ -1,0 +1,71 @@
+okay how do i design this:
+
+react frontend, backend spring boot, database postgres or MySQL, file storage was s3
+optional:
+caching redis
+queue kafka or smth
+
+so the MVP I wanna make is a react UI with a search page for company threads, and a page for each company thread, where there can be tweets about experiences with the company for co-ops
+
+and I wanna make a page to create a new company thread if there isn't one already
+
+1. search page for company threads (the entry of the application)
+2. a page for each company thread
+3.  a page to create a new company thread if there isn't one already
+
+for 1. the backend should be able to filter the database for any matching the users input in the search
+
+for 2. the backend should do idk what maybe return the info to the frontend to show in the webpage such as company thread and company posts
+
+for 3. the backend should register the info in the database maybe
+
+I've heard of the MVC design pattern for springboot, but what design should I do this with to mimic scalable applications like Instagram, twitter, or reddit
+
+do authentication so making sure the user is logged in (after doing the main 3)
+
+How does MVC work here:
+
+In a Spring Boot MVC backend, the Model, Service, and Repository work together like this:
+
+1️⃣ Frontend (React) makes a request to GET /api/threads/google
+2️⃣ Controller receives the request and calls the Service
+3️⃣ Service processes business logic and calls the Repository
+4️⃣ Repository interacts with the database and returns the data
+5️⃣ Service returns the data to the Controller
+6️⃣ Controller sends a JSON response to React
+7️⃣ React displays the data in the UI
+
+the database is postgressql, since it is an object relational database, which is helpful for springboot
+
+
+WHAT TO MAKE: 2/19/25
+
+Homepage with search bar (get request to backend controller to get any company communities like reddit)
+
+company community page (get request to backend controller to get any posts like reddit)
+
+make a new company community (post request to backend controller to make a new community)
+
+make a new post in a company community (post request to backend controller to make a new post)
+
+I will first start making the post object controller, service, repository, entity
+
+
+commands:
+http://localhost:8080/community for get request
+
+postgres-# \c brickdoordb1
+You are now connected to database "brickdoordb1" as user "hamzah".
+brickdoordb1-#
+
+run the springboot application
+mvn spring-boot:run
+
+
+http://localhost:8080/community \
+-H "Content-Type: application/json" \
+-d '{
+  "name": "Test Community",
+  "description": "A sample description for the community"
+}'
+
